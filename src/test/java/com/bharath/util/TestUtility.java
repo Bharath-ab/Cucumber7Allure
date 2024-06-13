@@ -8,6 +8,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 
 public class TestUtility {
     public WebDriver driver;
+    public static WebDriver WebDriverForScreenShort;
 
     public WebDriver launchWebDriver(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
@@ -24,6 +25,7 @@ public class TestUtility {
         } else {
             System.out.println("Available browsers are Chrome & Edge");
         }
+        WebDriverForScreenShort = driver;
         return driver;
     }
 

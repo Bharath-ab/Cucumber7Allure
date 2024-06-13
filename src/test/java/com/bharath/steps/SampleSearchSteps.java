@@ -3,18 +3,18 @@ package com.bharath.steps;
 import com.bharath.util.TestUtility;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.qameta.allure.Allure;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import java.time.Duration;
 
 public class SampleSearchSteps extends TestUtility {
     WebDriver driver;
     WebDriverWait wait;
+
+
 
     @Given("User launch {string} browser")
     public void userLaunchBrowser(String browser) {
@@ -23,10 +23,9 @@ public class SampleSearchSteps extends TestUtility {
 
     @Then("User navigate to url {string}")
     public void userNavigateToUrl(String url) {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.navigate().to(url);
         driver.manage().window().maximize();
-
     }
 
     @Then("User search for text {string}")
@@ -46,6 +45,8 @@ public class SampleSearchSteps extends TestUtility {
 
     @Then("User close the browser")
     public void userCloseTheBrowser() {
-        closeWebDriver();
+        System.out.println("Clean Up");
     }
+
+
 }
