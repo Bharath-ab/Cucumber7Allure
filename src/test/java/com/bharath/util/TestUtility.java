@@ -11,13 +11,13 @@ public class TestUtility {
 
     public WebDriver launchWebDriver(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/drivers/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver.exe");
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
             driver = new ChromeDriver(options);
 
         } else if (browser.equalsIgnoreCase("edge")) {
-            System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + "/src/drivers/msedgedriver.exe");
+            System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + "/drivers/msedgedriver.exe");
             EdgeOptions options = new EdgeOptions();
             options.addArguments("--remote-allow-origins=*");
             driver = new EdgeDriver(options);
