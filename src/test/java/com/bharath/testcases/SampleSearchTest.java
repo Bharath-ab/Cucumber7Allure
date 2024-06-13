@@ -1,10 +1,7 @@
 package com.bharath.testcases;
 
 import com.bharath.util.TestUtility;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class SampleSearchTest extends TestUtility {
     WebDriver driver;
     WebDriverWait wait;
@@ -20,13 +19,17 @@ public class SampleSearchTest extends TestUtility {
     String searchText = "Cat";
     String browser = "chrome";
 
-    @BeforeEach
+    @BeforeAll
     @DisplayName("Create Browser Session")
     public void setupWebDriver() {
         driver = launchWebDriver(browser);
+
     }
 
-    @Test()
+
+
+    @Test
+    @Order(2)
     @DisplayName("Simple google search project")
     public void googleSearch() {
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -37,7 +40,8 @@ public class SampleSearchTest extends TestUtility {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Cat - Wikipedia']")));
     }
 
-    @AfterEach()
+
+   @AfterAll
     @DisplayName("Close Browser Session")
     public void closeBrowser() {
         driver.close();
