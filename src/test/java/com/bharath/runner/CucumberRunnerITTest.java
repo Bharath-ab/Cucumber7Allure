@@ -16,5 +16,5 @@ import org.junit.platform.suite.api.*;
 @ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty, io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm")
 @ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-report/cucumber.html")
 
-public class CucumberRunnerIT {
+public class CucumberRunnerITTest {
 }
