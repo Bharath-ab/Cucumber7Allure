@@ -9,6 +9,6 @@ Feature: Google search scenario example
 
     Examples:
       | animal |
-      | cat    |
       | dog    |
+      | cat    |
       | fox    |

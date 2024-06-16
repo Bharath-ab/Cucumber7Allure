@@ -1,6 +1,6 @@
-@sample
+@ng
 Feature: Test GO
-  @sample
+  @ng
   Scenario: Sample Test Go
     Given user say "Hi"
     Then user say "bye"

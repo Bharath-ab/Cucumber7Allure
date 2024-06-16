@@ -23,14 +23,18 @@ public class Hooks {
             TakesScreenshot ts = (TakesScreenshot) TestUtility.WebDriverForScreenShort;
             byte[] src = ts.getScreenshotAs(OutputType.BYTES);
             scenario.attach(src, "image/png", "screenshot");
-            Allure.addAttachment(scenario.getName(), new ByteArrayInputStream(ts.getScreenshotAs(OutputType.BYTES)));
+            Allure.addAttachment("Failed", new ByteArrayInputStream(ts.getScreenshotAs(OutputType.BYTES)));
+
         }
     }
 
     @After(order = 0)
     public void tearDown() {
         System.out.println("This is after hook");
-        TestUtility.WebDriverForScreenShort.close();
-        TestUtility.WebDriverForScreenShort.quit();
+        if (TestUtility.WebDriverForScreenShort != null) {
+            TestUtility.WebDriverForScreenShort.close();
+            TestUtility.WebDriverForScreenShort.quit();
+        }
+
     }
 }
